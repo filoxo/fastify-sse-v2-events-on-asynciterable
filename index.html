@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>fastify-sse-v2-events-on-asynciterable</title>
+  </head>
+  <body>
+    <script>
+      document.addEventListener(
+        "DOMContentLoaded",
+        () => {
+          const evtSource = new EventSource("/data", { withCredentials: false });
+          evtSource.addEventListener('message', function (msg) {
+            console.log('sse message:', msg)
+          })
+          evtSource.addEventListener("ping", function (event) {
+            const data = JSON.parse(event.data);
+            console.log('sse ping:', data);
+          });
+          evtSource.addEventListener('error', function (err){
+            console.error('sse error:', err);
+          })
+        },
+        { once: true }
+      );
+    </script>
+  </body>
+</html>

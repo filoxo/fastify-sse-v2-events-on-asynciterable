@@ -1,0 +1,23 @@
+{
+  "name": "fastify-sse-v2-events-on-asynciterable",
+  "version": "0.0.1",
+  "main": "app.js",
+  "private": true,
+  "scripts": {
+    "start": "fastify start -l info app.js",
+    "test": "tap test/**/*.test.js",
+    "dev": "fastify start -w -l info -P app.js"
+  },
+  "author": "@filoxo",
+  "license": "MIT",
+  "dependencies": {
+    "event-iterator": "^2.0.0",
+    "fastify": "^3.0.0",
+    "fastify-cli": "^2.7.0",
+    "fastify-plugin": "^3.0.0",
+    "fastify-sse-v2": "^2.0.3"
+  },
+  "devDependencies": {
+    "tap": "^14.11.0"
+  }
+}
